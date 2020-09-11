@@ -1,16 +1,16 @@
 #include<stdio.h>
 #include<conio.h>
 void check(char,char);
-char a[9]={'1','2','3','4','5','6','7','8','9'};		//Declaring char type array for storing the values (x,0)
+char a[9]={'1','2','3','4','5','6','7','8','9'};//Declaring char type array for storing the values (x,0)
 
 
-void gamename()													//User defiened function to display game name (gamename)
+void gamename()							//User defiened function to display game name (gamename)
 {
 	printf("\t\t\tTic Tac Toe Game:\n\n");
 }
 
 
-void show()														//User defiened function for layout (show)
+void show()								//User defiened function for layout (show)
 {
 	printf("\n\n\t\t\t---|---|---\n");
 	printf("\t\t\t  %c  %c  %c\n",a[0],a[1],a[2]);
@@ -22,40 +22,41 @@ void show()														//User defiened function for layout (show)
 }
 
 
-void inputsymbol()												//User defiened function for input instructions (inputsymbol)
+void inputsymbol()						//User defiened function for input instructions (inputsymbol)
 {
 	printf("\n\tPlayer 1 symbol:x:\n\tPlayer 2 symbol:0:\n");
 }
 
 int count=0;
 
-void play()														//User defiened function for start playing
+void play()
 {
 	char p,s;
-	printf("Enter position and symbol for the player:\n");
+	printf("Enter position:\n");
 	fflush(stdin);
 	scanf("%c",&p);
+	printf("Enter symbol:\n");
 	fflush(stdin);
 	scanf("%c",&s);
 	count++;
-	check(p,s);							//function calling inside a function
+	check(p,s);							//passing position and value in check() function
 }
 
 
-void check(char P,char S)										//User defiende fun. to check the position and fill the value
+void check(char P,char S)				//User defiende fun. to check the position and fill the value
 {
 	int i;
 	for(i=0;i<=8;i++)
 	{
-	if(a[i]==P)							//checking the existing position
-	{
-		a[i]=S;							//filling the value
-	}	
+		if(a[i]==P)							//checking the position
+		{
+			a[i]=S;							//assigning the value
+		}	
 	}
 }
 
 
-int end()														// User defiend function to ckeck the winner (returning argument) 
+int end()								// User defiend function to ckeck the winner (returning argument) 
 {
 	if((a[0]=='x'&&a[1]=='x'&&a[2]=='x')||(a[0]=='x'&&a[3]=='x'&&a[6]=='x')||(a[0]=='x'&&a[4]=='x'&&a[8]=='x'))	
 	return 100;
@@ -90,12 +91,10 @@ void main()
 {
 	int k;
 	char ch;
-	
 	labell:
-		
-	gamename();									//calling function (gamename)
-	show();										//Calling function for layout (show)
-	inputsymbol();								//calling function (inputfunction)
+	gamename();									//Display "Tic Tac Toe"
+	show();										//Display layout of the game
+	inputsymbol();								//Instructions for input
 	play();										//calling fun. for start playing
 	
 	label:
